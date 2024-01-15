@@ -1,0 +1,25 @@
+language: php
+sudo: false
+
+env:
+    global:
+        - SYMFONY_PHPUNIT_VERSION=7.5
+        - SYMFONY_DEPRECATIONS_HELPER=29
+
+matrix:
+    include:
+        - php: 7.1
+        - php: 7.2
+        - php: 7.3
+
+before_install:
+    - composer self-update
+    - composer clear-cache
+
+install:
+    - travis_retry composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable
+
+script:
+    - yarn
+    - yarn run build
+    - php bin/phpunit
