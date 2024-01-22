@@ -144,8 +144,13 @@ class Product implements UuidIdentifiable
      */
     private $updatedAt;
 
+     /**
+     * @var string|null
+     *
+     * @ORM\Column(type="text", nullable=true)
+     * @Assert\Type(type="string")
+     */
     private $valueProposition;
-
 
     public function __construct(string $name)
     {
