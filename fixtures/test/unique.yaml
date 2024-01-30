@@ -1,0 +1,21 @@
+App\Module\Customer\PostalAddress:
+    test_address:
+        addressCountry: 'France'
+        addressCity: 'Paris'
+        postalCode: '75000'
+        streetAddress: 'Avenue des Champs-Élysées'
+
+App\Module\Customer\Person:
+    test_person:
+        address: '@test_address'
+        email: 'test@mail.com'
+        familyName: 'Test lastname'
+        givenName: 'Test firstname'
+        telephone: '+33600000000'
+
+App\Module\Customer\Customer:
+    test_customer:
+        __construct:
+            login: 'test'
+            password: 'secret'
+            person: '@test_person'
